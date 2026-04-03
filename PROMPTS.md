@@ -1,0 +1,43 @@
+# Prompts Log
+
+- [2026-04-02] /init — analyzed codebase and created CLAUDE.md with commands, stack, and architecture overview.
+- [2026-04-02] Read requirements PDF and make a plan — read Frontend_Engineering_Take-Home_Exercise.pdf and created PLAN.md with a 4-phase, 15-step implementation plan.
+- [2026-04-02] Create an md file with the plan — wrote PLAN.md from the plan produced in the previous step.
+- [2026-04-02] Add rules to CLAUDE.md: always read requirements PDF, log every prompt to PROMPTS.md — updated CLAUDE.md with both rules and created PROMPTS.md.
+- [2026-04-02] Implement Phase 1 Step 1 — created src/types/domain.ts with Domain interface and DomainStatus union type.
+- [2026-04-02] Implement Phase 1 Step 2 — created src/api/domains.ts with 25 mock domain records, simulated network delay, and VITE_API_FAIL error trigger.
+- [2026-04-02] Fix TypeScript errors in domains.ts — wrapped resolve in arrow function for setTimeout, declared VITE_API_FAIL in env.d.ts.
+- [2026-04-02] Move simulateDelay and fetchDomains to src/services/domainService.ts, export MOCK_DOMAINS from src/api/domains.ts.
+- [2026-04-02] Implement Phase 1 Step 3 — created src/composables/useDomains.ts with reactive state, computed filters, registrarOptions, loadDomains, and clearFilters.
+- [2026-04-02] Implement Phase 2 Step 4 — created src/assets/styles/base.css and utilities.css with CSS custom properties and reset; imported both in main.ts.
+- [2026-04-02] Implement Phase 2 Step 5 — created src/components/StatusBadge.vue with coloured pill for all three domain statuses.
+- [2026-04-02] Implement Phase 2 Step 6 — created LoadingSpinner.vue (CSS spin animation) and EmptyState.vue (empty/error/no-results variants with retry emit).
+- [2026-04-02] Implement Phase 2 Step 7 — created DomainTableRow.vue with expiry highlighting, date formatting for nullable fields, and keyboard accessibility.
+- [2026-04-02] Implement Phase 2 Step 8 — created DomainTable.vue with internal sort state, sortable column headers, aria-sort, and horizontal scroll wrapper.
+- [2026-04-02] Implement Phase 2 Step 9 — created DomainFilters.vue as a controlled component using defineModel for search, registrar, and status filters.
+- [2026-04-02] Implement Phase 3 Step 10 — created DomainDetail.vue as a slide-in panel with Teleport, Transition, focus trap, Escape-to-close, and expiry warnings.
+- [2026-04-02] Implement Phase 3 Step 11 — assembled App.vue wiring useDomains composable, DomainFilters, DomainTable, DomainDetail, LoadingSpinner, and EmptyState.
+- [2026-04-02] Create unit tests — added useDomains.spec.ts, StatusBadge.spec.ts, DomainFilters.spec.ts, DomainTable.spec.ts, DomainDetail.spec.ts.
+- [2026-04-02] Create unit tests for domainService — added domainService.spec.ts covering resolve, deep clone isolation, error flag, and delay range.
+- [2026-04-02] Change DomainDetail from slide-in panel to centered modal; updated DomainDetail.spec.ts to use .modal class names.
+- [2026-04-02] Implement Phase 4 Step 12 — created cypress/e2e/domain-explorer.cy.ts with E2E tests; repurposed example.cy.ts as smoke test.
+- [2026-04-02] Implement Phase 4 Step 13 — accessibility pass: scope/tabindex/keyboard on th headers, role=alert on error state, aria-label on main, sr-only live region for result count.
+- [2026-04-02] Implement Phase 4 Step 14 — rewrote README.md with Setup, Approach, Component Structure, Assumptions, Tradeoffs, Backend API Proposal, and Future Improvements.
+- [2026-04-02] Implement Phase 4 Step 15 — created AI_USAGE.md documenting tools used, tasks assisted, corrections made, and validation approach.
+- [2026-04-02] Update App.spec.ts — replaced placeholder smoke test with tests for heading, filters, loading/error/empty/success states.
+- [2026-04-02] Run unit tests and fix errors — corrected initial loading state assertion, sort toggle click count, App.spec timing (nextTick/flushPromises), and unhandled rejection in domainService.spec.
+- [2026-04-02] Fix Cypress E2E tests — fixed search term, replaced cy.wrap().contains() with badge class assertions for status filters, fixed sort to one click, stabilized registrar filter with exact count before each().
+- [2026-04-02] Add incomplete data cases to api/domains.ts — null registrar, null dates, null nameservers, and an all-nulls record.
+- [2026-04-02] Update TOTAL_DOMAINS to 29 in E2E tests to reflect 4 new incomplete data records.
+- [2026-04-02] Make table headers sticky — added position:sticky/top:0/z-index:1 to th, overflow-y:auto and max-height to wrapper so sticky works within the scroll container.
+- [2026-04-02] Fix registrar filter E2E count — nonameservers.org added Tucows count to 7.
+- [2026-04-02] Reduce StatusBadge size in modal header using :deep(.badge) override — smaller font and padding so it reads as a label next to the title rather than matching its weight.
+- [2026-04-02] Replace favicon with Tucows Domains logo — updated index.html to reference /tucows-domains.png.
+- [2026-04-02] Highlight Clear filters button — primary color border and text at rest, fills solid primary on hover.
+- [2026-04-02] Remove sticky table headers — reverted position/top/z-index from th and removed overflow-y/max-height from wrapper.
+- [2026-04-02] Replace direct mock with MSW — installed msw, created handlers/browser/server, fetchDomains now uses fetch('/api/v1/domains'), main.ts starts worker in DEV, domainService.spec.ts uses MSW node server, removed VITE_API_FAIL.
+- [2026-04-02] Fix Cypress E2E — start MSW worker unconditionally so it runs in the preview build, not just DEV.
+- [2026-04-02] Update AI_USAGE.md — restructured using the four PDF-specified topics: which tools, what tasks, what was modified/corrected, how output was validated.
+- [2026-04-02] Reload and format AI_USAGE.md — incorporated user edits, fixed inline UX/UI items as proper bullet, converted validation section to headed subsections with proper list formatting.
+- [2026-04-02] Reload and update README.md — replaced VITE_API_FAIL references with MSW description, updated mock record count from 25 to 29, updated tradeoffs and future improvements accordingly.
+- [2026-04-02] Fix PR review issues — restored focus to trigger element on modal close, added Space key handler to DomainTableRow, added runtime shape validation in fetchDomains, created DomainTableRow.spec.ts with 9 tests.
